@@ -4,6 +4,7 @@ import 'package:fooddelivery/views/update_product/update_product.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/food_item_controller.dart';
+import '../../models/food_item_list_model/food_item_list_model.dart';
 
 class ProductList extends StatefulWidget {
   const ProductList({Key? key}) : super(key: key);
@@ -14,10 +15,9 @@ class ProductList extends StatefulWidget {
 
 class _ProductListState extends State<ProductList> {
   FoodListController foodListController = Get.find(tag: 'foodListController');
-  late var store;
+  late FoodItemListModel store;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     store = foodListController.foodListStore;
   }

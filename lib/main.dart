@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'firebase_options.dart';
 import 'controllers/food_item_controller.dart';
 import 'controllers/order_item_controller.dart';
 import 'models/food_item_list_model/food_item_list_model.dart';
@@ -9,7 +9,9 @@ import 'views/home/home.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   setController(); //making product/order items available to all screens
   addProduct(); //this fetch products from database if they exists already
   runApp(const MyApp());
